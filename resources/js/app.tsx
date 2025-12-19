@@ -6,6 +6,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { initializeTheme } from './hooks/use-appearance';
 import { ToastProvider } from './features/partager/toast/ToastContext';
+import { InertiaLoaderWrapper } from './components/inertia-loader-wrapper';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -22,14 +23,13 @@ createInertiaApp({
         root.render(
             <StrictMode>
                 <ToastProvider>
+                    <InertiaLoaderWrapper />
                     <App {...props} />
                 </ToastProvider>
             </StrictMode>,
         );
     },
-    progress: {
-        color: '#4B5563',
-    },
+    progress: false,
 });
 
 // This will set light / dark mode on load...
