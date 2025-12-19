@@ -31,6 +31,7 @@ interface SimpleComboboxProps {
     emptyText?: string;
     className?: string;
     buttonClassName?: string;
+    disabled?: boolean;
 }
 
 /**
@@ -46,19 +47,21 @@ export function SimpleCombobox({
     emptyText = 'Aucun résultat.',
     className,
     buttonClassName,
+    disabled = false,
 }: SimpleComboboxProps) {
     const [open, setOpen] = React.useState(false);
 
     const selectedOption = options.find((opt) => opt.value === value);
 
     return (
-        <Popover open={open} onOpenChange={setOpen}>
+        <Popover open={open && !disabled} onOpenChange={(newOpen) => !disabled && setOpen(newOpen)}>
             <PopoverTrigger asChild>
                 <Button
                     type="button"
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
+                    disabled={disabled}
                     className={cn(
                         'w-full justify-between bg-background text-foreground border-input',
                         !selectedOption && 'text-muted-foreground',

@@ -83,8 +83,7 @@ export function BaseCard({
                 {Icon && (
                     <div
                         className={cn(
-                            'p-2 rounded-lg bg-muted text-muted-foreground transition-colors duration-300',
-                            themeColor,
+                            'p-2 rounded-lg bg-primary text-primary-foreground transition-colors duration-300',
                             iconClassName
                         )}
                     >

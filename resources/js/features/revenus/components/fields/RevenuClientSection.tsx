@@ -74,6 +74,7 @@ export function RevenuClientSection({
                             placeholder="Sélectionner un client"
                             searchPlaceholder="Rechercher un client..."
                             emptyText="Aucun client trouvé."
+                            disabled={isEditing}
                         />
                         <InputError message={errors.client_id} />
                     </div>

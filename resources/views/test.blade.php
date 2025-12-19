@@ -1,3 +1,7 @@
+
+
+<!-- // orignal -->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
@@ -30,9 +34,6 @@
             }
         </style>
 
-        {{-- Initial loader styles --}}
-        @include('partials.loader-styles')
-
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
@@ -47,22 +48,6 @@
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
-        {{-- Initial page load loader --}}
-        @include('partials.loader-html')
-
         @inertia
-
-        {{-- Hide loader when page is fully loaded --}}
-        <script>
-            window.addEventListener('load', function() {
-                const loader = document.getElementById('initial-loader');
-                if (loader) {
-                    loader.classList.add('hidden');
-                    setTimeout(function() {
-                        loader.remove();
-                    }, 300);
-                }
-            });
-        </script>
     </body>
 </html>
