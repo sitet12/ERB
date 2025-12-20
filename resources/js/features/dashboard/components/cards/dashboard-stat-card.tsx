@@ -29,12 +29,12 @@ export function DashboardStatCard({
   const Icon = isPositive ? TrendingUp : TrendingDown
 
   return (
-    <Card className="@container/card">
-      <CardHeader className="pb-3">
+    <Card className="@container/card flex flex-col h-full">
+      <CardHeader className="pb-3 flex-shrink-0">
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
             <CardDescription className="text-xs mb-1">{title}</CardDescription>
-            <CardTitle className="text-lg font-semibold tabular-nums leading-tight">
+            <CardTitle className="text-lg font-semibold tabular-nums leading-tight min-h-[2.5rem]">
               {value}
             </CardTitle>
           </div>
@@ -46,7 +46,7 @@ export function DashboardStatCard({
           </CardAction>
         </div>
       </CardHeader>
-      <CardFooter className="flex-col items-start gap-1 pt-2 pb-3">
+      <CardFooter className="flex-col items-start gap-1 pt-2 pb-3 mt-auto">
         <div className="line-clamp-1 flex gap-1.5 text-xs font-medium">
           {footerText} <Icon className="size-3" />
         </div>
